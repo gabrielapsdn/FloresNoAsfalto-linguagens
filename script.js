@@ -163,6 +163,33 @@ function exploreOther(){
   renderInv();
 }
 
+/* Trechos das canções — baseados nas músicas originais */
+function getLyricExcerpt(faixa){
+  const excerpts = {
+    'Sangue Latino': `
+      <em>Baseada na canção <strong>Sangue Latino</strong> (Secos &amp; Molhados, 1973)</em><br><br>
+      "Juro que não entendo<br>
+      Minha intenção era ir embora<br>
+      Mas o sangue latino<br>
+      Não me deixa parar…"
+    `,
+    'Primavera nos Dentes': `
+      <em>Baseada na canção <strong>Primavera nos Dentes</strong> (Secos &amp; Molhados, 1973)</em><br><br>
+      "Quem tem fome de tudo<br>
+      Não se satisfaz com pouco<br>
+      Primavera nos dentes…"
+    `,
+    'Rosa de Hiroshima': `
+      <em>Baseada na canção <strong>Rosa de Hiroshima</strong> (Secos &amp; Molhados, 1973)</em><br><br>
+      "Pensem nas crianças<br>
+      Mudas telepáticas<br>
+      Pensem nas meninas<br>
+      Cegas inexatas…"
+    `
+  };
+  return excerpts[faixa] || '';
+}
+
 function renderInv(){
   renderStageTrack();
   renderTrail();
@@ -200,7 +227,7 @@ function renderInv(){
       <div class="lyric-box">
         <span class="track">PISTA MUSICAL — "${r.faixa.toUpperCase()}"</span>
         <span class="interp">${r.interpretacao}</span>
-        <span class="slot">[ cole aqui o trecho oficial da letra de "${r.faixa}" — vocês já têm o excerto no dossiê original ]</span>
+        <blockquote class="lyric-excerpt">${getLyricExcerpt(r.faixa)}</blockquote>
       </div>
       <p style="margin-top:18px; font-weight:700; color:var(--ink);">Escolha 1 — O que Iraídes faz agora?</p>
       <div class="mid-grid">
